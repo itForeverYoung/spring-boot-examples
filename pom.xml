@@ -10,10 +10,16 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-boot-hello-world</module>
-        <module>spring-boot-redis</module>
-        <module>spring-boot-mongo</module>
         <module>spring-boot-elasticsearch</module>
+        <module>spring-boot-hello-world</module>
+        <module>spring-boot-jpa</module>
+        <module>spring-boot-kafka</module>
+        <module>spring-boot-mongo</module>
+        <module>spring-boot-mybatis</module>
+        <module>spring-boot-quartz</module>
+        <module>spring-boot-rabbitmq</module>
+        <module>spring-boot-redis</module>
+        <module>spring-boot-websocket</module>
     </modules>
 
 </project>

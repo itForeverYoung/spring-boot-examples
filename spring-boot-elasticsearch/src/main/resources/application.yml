@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /es
+  port: 8081
+
+spring:
+  application:
+    name: elasticsearch
+  profiles:
+    active: dev

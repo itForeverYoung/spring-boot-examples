@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: elasticsearch-dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/es_db?serverTimezone=Asia/Shanghai&useSSL=false&zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8
+    username: root
+    password: 123456
+    type:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.it.forever.young.entity
+  #config-location: classpath:mybatis/mybatis-config.xml
