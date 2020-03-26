@@ -1,23 +1,20 @@
-package com.it.forever.young.entity;
+package com.it.forever.young.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * @ClassName: User
- * @Author: Damon
- * @Date: 2019/11/13 11:40 AM
- * @Description: for mongo test
+ * @author zhangjikai
+ * @date 2020/3/26 21:41
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("test")
 public class User {
 
     private String name;
     private String address;
     private int age;
+
 }
