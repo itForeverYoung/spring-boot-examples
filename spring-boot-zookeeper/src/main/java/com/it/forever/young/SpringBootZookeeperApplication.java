@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author zhangjikai
  */
 @SpringBootApplication
-public class SpringBootQuartzApplication {
+public class SpringBootZookeeperApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootQuartzApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootZookeeperApplication.class, args);
+	}
 
 }

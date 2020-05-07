@@ -1,23 +1,36 @@
 server:
-  port: 8081
+  port: 10000
   servlet:
     context-path: /quartz
 spring:
   quartz:
-    auto-startup: true
     scheduler-name: quartzScheduler
     jdbc:
       comment-prefix: "#"
       initialize-schema: never
     job-store-type: jdbc
+    auto-startup: true
+    startup-delay: 30
     overwrite-existing-jobs: true
     wait-for-jobs-to-complete-on-shutdown: true
     properties:
+      # config job store
       org.quartz.jobStore.class: org.quartz.impl.jdbcjobstore.JobStoreTX
       org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
-      org.quartz.jobStore.dataSource: quartzDataSource
+      org.quartz.jobStore.misfireThreshold: 60000
+      # config cluster properties
+      org.quartz.jobStore.isClustered: true
+      org.quartz.jobStore.clusterCheckinInterval: 15000
+      # config thread pool properties
+      org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
+      org.quartz.threadPool.threadCount: 10
+      org.quartz.threadPool.threadPriority: 2
+      # config main schedule properties
+      org.quartz.scheduler.instanceName: clusteredScheduler
+      org.quartz.scheduler.instanceId: AUTO
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/quartz_db
+    url: jdbc:mysql://127.0.0.1:3306/quartz_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
