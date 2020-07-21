@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>spring-boot-common</module>
         <module>spring-boot-hello-world</module>
         <module>spring-boot-quartz</module>
         <module>spring-boot-websocket</module>
