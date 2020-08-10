@@ -15,9 +15,7 @@ import java.util.List;
 /**
  * @author jikzhang
  * @version 1.0
- * @className ESController
  * @date 2019/8/5 15:33
- * @description 测试mybatis，表为user
  */
 @RestController
 public class UserController {

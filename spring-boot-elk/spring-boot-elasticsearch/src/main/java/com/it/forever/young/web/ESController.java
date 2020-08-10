@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author jikzhang
  * @version 1.0
- * @className ESController
  * @date 2019/8/5 15:33
- * @description 测试elastic，index为weather
  */
 @RestController
 //@RequestMapping("/weather")

@@ -9,9 +9,7 @@ import java.util.List;
 /**
  * @author jikzhang
  * @version 1.0
- * @className UserDao
  * @date 2019/8/5 16:31
- * @description TODO
  */
 @Mapper
 public interface UserDao {

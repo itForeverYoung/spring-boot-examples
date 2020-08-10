@@ -3,6 +3,9 @@ package com.it.forever.young;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author balala
+ */
 @SpringBootApplication
 public class SpringBootElasticsearchApplication {
 

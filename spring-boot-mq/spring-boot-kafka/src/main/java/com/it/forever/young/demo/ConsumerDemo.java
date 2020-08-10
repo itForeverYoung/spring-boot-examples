@@ -25,9 +25,10 @@ public class ConsumerDemo {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
         // 配置消费者对应的client.id
         properties.put("client.id", "consumer.client.id.demo");
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer.group.id.demo");
         // 生产者需要序列化消息，那么消费者就需要反序列化消息，所以这里需要指定key，value的反序列化器
-        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
         return properties;
     }
 
@@ -42,10 +43,12 @@ public class ConsumerDemo {
         // 3. 订阅指定topic的指定分区，USER_ASSIGNED
         // consumer.assign(new ArrayList<TopicPartition>(){{add(new TopicPartition(TOPIC, 1));}});
         try {
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ZERO);
-            for (ConsumerRecord record : records) {
-                System.out.printf("topic is %s, %n, partition is %s, %n, offset is %s, %n, key is %s, %n, value is %s, %n.",
-                        record.topic(), record.partition(), record.offset(), record.key(), record.value());
+            while (true) {
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(10000));
+                for (ConsumerRecord record : records) {
+                    System.out.printf("topic is %s, %n, partition is %s, %n, offset is %s, %n, key is %s, %n, value is %s, %n.",
+                            record.topic(), record.partition(), record.offset(), record.key(), record.value());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

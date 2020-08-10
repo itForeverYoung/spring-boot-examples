@@ -5,7 +5,6 @@ import java.util.HashMap;
 /**
  * @author jikzhang
  * @version 1.0
- * @className R
  * @date 2019/8/5 15:36
  * @description 统一返回的response，对象中默认有code，msg为可选
  */
